@@ -29,3 +29,109 @@ export function fileToDataUrl(file) {
     reader.readAsDataURL(file);
     return dataUrlPromise;
 }
+
+// ***** MY FUNCTIONS ******
+
+// POST request function
+export const apiCallPost = (path, body, authed = false, globalToken) => {
+    return new Promise((resolve, reject) => {
+      fetch(`http://localhost:5005/${path}`, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': authed ? `Bearer ${globalToken}` : undefined
+        }
+      })
+      .then((response) => {
+        if (!response.ok) {
+          // Check if the response status is not in the 200 range (e.g., 400, 500, etc.)
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((body) => {
+        console.log(body);
+        if (body.error) {
+          reject('Error!');
+        } else {
+          resolve(body);
+        }
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
+        reject(error);
+      });
+    });
+  };
+
+
+// GET request function
+export const apiCallGet = (path, body, authed=false, globalToken) => {
+	return new Promise((resolve, reject) => {
+		fetch(`http://localhost:5005/${path}`, {
+			method: 'GET',
+			headers: {
+				'Content-type': 'application/json',
+				'Authorization': authed ? `Bearer ${globalToken}` : undefined
+			}
+		})
+		.then((response) => response.json())
+		.then((body) => {
+			console.log(body);
+			if (body.error) {
+				reject('Error!');
+			} else {
+				resolve(body);
+			}
+		});
+	});
+}
+
+
+// POST request function
+export const apiCallPut = (path, body, authed = true, globalToken) => {
+  return new Promise((resolve, reject) => {
+    fetch(`http://localhost:5005/${path}`, {
+      method: 'PUT',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-type': 'application/json',
+        'Authorization': authed ? `Bearer ${globalToken}` : undefined
+      }
+    })
+    .then((response) => {
+      if (!response.ok) {
+        // Check if the response status is not in the 200 range (e.g., 400, 500, etc.)
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((body) => {
+      console.log(body);
+      if (body.error) {
+        reject('Error!');
+      } else {
+        resolve(body);
+      }
+    })
+    .catch((error) => {
+      console.error('Fetch error:', error);
+      reject(error);
+    });
+  });
+};
+
+export function formatTimestamp(isoString) {
+    const date = new Date(isoString);
+
+    // Format the date as "Month Day, Year" (e.g., "October 23, 2023")
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = date.toLocaleDateString(undefined, options);
+
+    // Format the time as "HH:MM AM/PM" (e.g., "04:37 AM")
+    const timeOptions = { hour: '2-digit', minute: '2-digit' };
+    const formattedTime = date.toLocaleTimeString(undefined, timeOptions);
+
+    return `${formattedDate} at ${formattedTime}`;
+}

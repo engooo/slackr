@@ -5,5 +5,59 @@ html, body {
     padding: 0;
     background-color: #fafafa;
     height: 100%;
+    width: 100%;
     font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.page-block {
+    display: block;
+}
+
+.error-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+#text-channel-template {
+    display: none;
+}
+
+#message-template {
+    display: none;
+}
+#page-dashboard {
+    height: 100%;
+    width: 100%;
+}
+#dashboard-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+#sidebar {
+    flex: 1; /* Take up available space */
+    background-color: #333; /* Background color of the sidebar */
+    color: #fff; /* Text color in the sidebar */
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+#main-content {
+    flex: 2; /* Take up available space, adjust the value as needed */
+    background-color: #f0f0f0; /* Background color of the main content */
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+/* #logout {
+    justify-self: end;
+} */

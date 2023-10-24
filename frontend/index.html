@@ -9,6 +9,10 @@
   <!-- You can add your styles and scripts here -->
   <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
   <script type="module" src="src/helpers.js"></script>
+
+  <!-- Including bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,7 +22,169 @@
   </header>
   <main role="main">
     <!-- app goes here -->
+
+    <!-- PAGE DASHBOARD -->
+    <div id="page-dashboard" class="page-block">
+      
+      <div id="dashboard-container">
+        
+        <div id="sidebar">
+          <!-- text channel template -->
+          <div class="text-channel" id="text-channel-template">
+            Template Channel
+          </div>
+  
+          <div id="channels"> 
+            Channels
+          </div>
+
+          <div>
+            <button id="create-channel" type="button"> Create New Channel</button>
+          </div>
+
+          
+        </div>
+  
+        <!-- Container for main messages-->
+        <div id="main-content">
+
+          <div class="channel-toolbar">
+            <button id="channel-header">Channel Name</button>
+          </div>
+            
+          <div id="message-container">
+
+          </div>
+          
+            
+          <button type="button" id="logout">Logout</button>
+        </div>
+        
+        
+      </div>
+      
+
+      
+    </div>
+    <!-- PAGE REGISTER -->
+    <div id="page-register" class="page-block">
+      <h3>Register</h3>
+      <form>
+        Email: <input id="register-email" type="email" value="hayden@unsw.edu.au" /><br />
+        Name: <input id="register-name" type="text" value="Hayden" /><br />
+        Password: <input id="register-password" type="password" value="123456abcdefg" /><br />
+        Password (confirm): <input id="register-password-confirm" type="password" value="123456abcdefg" /><br />
+        <button type="button" id="register-submit">Submit</button>
+      </form>
+      Already registered? <a href="#" class="redirect" redirect="login">Login</a> 
+    </div>
+    <!-- PAGE LOGIN -->
+    <div id="page-login" class="page-block">
+      <h3>Login</h3>
+      <form>
+        Email: <input id="login-email" type="email" value="hayden@unsw.edu.au" /><br />
+        Password: <input id="login-password" type="password" value="123456abcdefg" /><br />
+        <button type="button" id="login-submit">Submit</button>
+      </form>
+      Not yet a member? <a href="#" class="redirect" redirect="register">Register</a> 
+    </div>
   </main>
+
+  <!-- ERROR POP-UPS -->
+  <div class="error-popup">
+    <span class="error-message">Your error message here.</span>
+    <button class="close-button">Close</button>
+  </div>
+
+<!-- MODAL POPUPS -->
+  <!-- Below modal code copied from Bootstrap https://getbootstrap.com/docs/5.0/components/modal/ -->
+  <!-- Join Server Modal -->
+  <div class="modal" id="join-server-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h2 class="modal-title">Want to join server?</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body channel-details">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" id="join-server-success" data-bs-dismiss="modal">Yes</button>
+          </div>
+        
+        </div>
+    </div>
+  </div>
+
+  <!-- Create New Channel Modal -->
+  <div class="modal" id="create-channel-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h2 class="modal-title">Create a channel</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body create-channel">
+          <!-- New channel form -->
+      
+          <form id="new-channel-form">
+            <div class="mb-3">
+              <label for="channel-name" class="form-label">Channel Name</label>
+              <input type="text" class="form-control" id="channel-name" required>
+            </div>
+            <div class="mb-3">
+              <label for="channel-description" class="form-label">Description (optional)</label>
+              <textarea class="form-control" id="channel-description"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-check-label">Privacy Setting</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="privacy" id="public" value="public" checked>
+                <label class="form-check-label" for="public">Public</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="privacy" id="private" value="private">
+                <label class="form-check-label" for="private">Private</label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="create-channel-button" data-bs-dismiss="modal">Create Channel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="channel-details-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Channel Details</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body channel-details">
+          <h3>Channel name</h3>
+            <p id="channel-details-name" contenteditable="true"></p>
+          <h3>Description</h3>
+            <p id="channel-details-description" contenteditable="true"></p>
+          <h3>Privacy Settings</h3>
+            <p id="channel-details-privacy"></p>
+          <h3>Created by</h3>
+            <p id="channel-details-creation"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="leave-button" data-bs-dismiss="modal">Leave server</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="save-changes-button" data-bs-dismiss="modal">Save changes</button>
+        </div>
+        </div>
+    </div>
+  </div>
+
+
   <footer>
     <p>&copy; Slackr</p>
   </footer>
@@ -26,3 +192,6 @@
 </body>
 
 </html>
+
+
+ 
