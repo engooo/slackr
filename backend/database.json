@@ -23,9 +23,282 @@
       "bio": null,
       "image": null,
       "sessionActive": true
+    },
+    "97421": {
+      "email": "hayde1n@unsw.edu.au",
+      "name": "Hayden",
+      "password": "123456abcdefg",
+      "bio": null,
+      "image": null,
+      "sessionActive": false
     }
   },
   "channels": {
+    "174300": {
+      "name": "awdwda",
+      "creator": 38587,
+      "private": false,
+      "description": "",
+      "createdAt": "2023-10-25T13:56:29.598Z",
+      "members": [],
+      "messages": [
+        {
+          "id": 169,
+          "message": "3",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T12:54:43.737Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 168,
+          "message": "2",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T12:54:42.316Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
+        },
+        {
+          "id": 167,
+          "message": "1",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T12:54:40.696Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": true,
+          "reacts": []
+        },
+        {
+          "id": 118,
+          "message": "hey",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T04:50:21.912Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "thumbs-up"
+            },
+            {
+              "user": 38587,
+              "react": {}
+            },
+            {
+              "user": 38587,
+              "react": {}
+            },
+            {
+              "user": 38587,
+              "react": {}
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            },
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        }
+      ]
+    },
+    "279482": {
+      "name": "final please let tghis ",
+      "creator": 38587,
+      "private": false,
+      "description": "",
+      "createdAt": "2023-10-26T10:56:46.022Z",
+      "members": [],
+      "messages": [
+        {
+          "id": 166,
+          "message": "fesfaeFAWDE;",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T12:27:45.313Z",
+          "edited": true,
+          "editedAt": "2023-10-26T12:31:21.775Z",
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "❤️"
+            },
+            {
+              "user": 38587,
+              "react": "💀"
+            },
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 161,
+          "message": "cdwad",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T10:56:53.161Z",
+          "edited": true,
+          "editedAt": "2023-10-26T12:27:05.012Z",
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 159,
+          "message": "ad",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T10:56:50.350Z",
+          "edited": true,
+          "editedAt": "2023-10-26T12:27:23.043Z",
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
+        }
+      ]
+    },
+    "283765": {
+      "name": "heyaf",
+      "creator": 38587,
+      "private": false,
+      "description": "This channel has no descriptionawfawf",
+      "createdAt": "2023-10-26T14:02:54.646Z",
+      "members": [
+        38587
+      ],
+      "messages": [
+        {
+          "id": 178,
+          "message": "4",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T14:13:26.149Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 177,
+          "message": "4",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T14:12:07.223Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 176,
+          "message": "3",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T14:03:04.004Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 175,
+          "message": "2",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T14:03:02.845Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            },
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
+        },
+        {
+          "id": 174,
+          "message": "1",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T14:03:01.655Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "💀"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        }
+      ]
+    },
     "286870": {
       "name": "channel 2",
       "creator": 38587,
@@ -35,18 +308,1410 @@
       "members": [
         38587
       ],
+      "messages": [
+        {
+          "id": 62,
+          "message": "6",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:08:52.043Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 61,
+          "message": "fifth",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:07:22.960Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 60,
+          "message": "fifth msg",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:06:17.058Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 59,
+          "message": "fourth msg",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:05:04.240Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 58,
+          "message": "third msg",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:03:43.896Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 57,
+          "message": "second msg",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:00:31.038Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 56,
+          "message": "channel 2 msg",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T11:59:36.685Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        }
+      ]
+    },
+    "460090": {
+      "name": "",
+      "creator": 97421,
+      "private": true,
+      "description": "",
+      "createdAt": "2023-10-24T01:54:02.178Z",
+      "members": [
+        97421
+      ],
       "messages": []
+    },
+    "472669": {
+      "name": "testing msg send",
+      "creator": 38587,
+      "private": false,
+      "description": "",
+      "createdAt": "2023-10-25T12:18:10.596Z",
+      "members": [
+        38587
+      ],
+      "messages": [
+        {
+          "id": 114,
+          "message": "26",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:56.430Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 113,
+          "message": "25",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:54.397Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 112,
+          "message": "24",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:52.866Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 111,
+          "message": "23",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:50.436Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 110,
+          "message": "22",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:49.039Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 109,
+          "message": "21",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:47.844Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 108,
+          "message": "20",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:45.075Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 107,
+          "message": "19",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:42.303Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 106,
+          "message": "18",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:40.043Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 105,
+          "message": "17",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:37.247Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 104,
+          "message": "16",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:35.636Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 103,
+          "message": "15",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:33.871Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 102,
+          "message": "14",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:32.393Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 101,
+          "message": "13",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:30.875Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 100,
+          "message": "12",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:29.415Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 99,
+          "message": "1",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:26.698Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 98,
+          "message": "9",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:24.849Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 97,
+          "message": "8",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:23.401Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 96,
+          "message": "7",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:22.332Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 95,
+          "message": "6",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:21.268Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 94,
+          "message": "5",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:20.305Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 93,
+          "message": "4",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:19.245Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 92,
+          "message": "3",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:18.267Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 91,
+          "message": "2",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:16.693Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 90,
+          "message": "1",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:18:15.419Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        }
+      ]
+    },
+    "472969": {
+      "name": "emoticons",
+      "creator": 38587,
+      "private": false,
+      "description": "",
+      "createdAt": "2023-10-26T09:50:53.373Z",
+      "members": [
+        38587
+      ],
+      "messages": [
+        {
+          "id": 158,
+          "message": "yae",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T10:01:43.186Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "💀"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 157,
+          "message": "test 7",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:53:19.638Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "💀"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            },
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 156,
+          "message": "test 6",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:53:14.602Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 155,
+          "message": "test 5",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:53:11.090Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 154,
+          "message": "test 4",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:53:08.136Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 153,
+          "message": "test 3",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:51:12.259Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "💀"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            },
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 152,
+          "message": "test 2",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:51:09.611Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 151,
+          "message": "test 1",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:51:05.578Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        }
+      ]
+    },
+    "487518": {
+      "name": "testing emoji fresh",
+      "creator": 38587,
+      "private": false,
+      "description": "",
+      "createdAt": "2023-10-26T08:54:49.898Z",
+      "members": [],
+      "messages": [
+        {
+          "id": 150,
+          "message": "esf",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:17:53.699Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 149,
+          "message": "pop",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:11:25.632Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 148,
+          "message": "wd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T09:07:25.220Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 147,
+          "message": "threee",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:56:30.585Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 146,
+          "message": "twooooo",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:56:26.574Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 145,
+          "message": "test 1",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:54:58.594Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        }
+      ]
+    },
+    "546975": {
+      "name": "emily public",
+      "creator": 38587,
+      "private": false,
+      "description": "",
+      "createdAt": "2023-10-26T11:06:36.111Z",
+      "members": [
+        38587
+      ],
+      "messages": [
+        {
+          "id": 165,
+          "message": "rawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T11:09:10.288Z",
+          "edited": true,
+          "editedAt": "2023-10-26T11:33:09.982Z",
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 164,
+          "message": "hi222",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T11:07:09.088Z",
+          "edited": true,
+          "editedAt": "2023-10-26T11:36:14.572Z",
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 163,
+          "message": "hey",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T11:06:42.587Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
+        }
+      ]
+    },
+    "633735": {
+      "name": "emoji",
+      "creator": 38587,
+      "private": false,
+      "description": "",
+      "createdAt": "2023-10-26T05:24:57.483Z",
+      "members": [
+        38587
+      ],
+      "messages": [
+        {
+          "id": 144,
+          "message": "awdawdawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:20:47.211Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "1💀"
+            },
+            {
+              "user": 38587,
+              "react": "2❤️"
+            },
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 143,
+          "message": "awdawdawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:20:43.974Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 142,
+          "message": "awdawdawdawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:20:42.244Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 141,
+          "message": "awdawdawdawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:20:38.554Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 140,
+          "message": "awdawdawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:20:35.829Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 139,
+          "message": "awdawdawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:20:32.703Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 138,
+          "message": "awdawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:20:30.616Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 137,
+          "message": "adw",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:19:44.520Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 136,
+          "message": "ghdghj",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T08:19:07.652Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 135,
+          "message": "awdawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:58:38.565Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 134,
+          "message": "awdawdawdef",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:58:09.084Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "2❤️"
+            }
+          ]
+        },
+        {
+          "id": 133,
+          "message": "awdawdawd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:57:27.919Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "2❤️"
+            },
+            {
+              "user": 38587,
+              "react": "1💀"
+            }
+          ]
+        },
+        {
+          "id": 132,
+          "message": "dinner soon",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:56:01.047Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 131,
+          "message": "pooface",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:52:29.701Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 130,
+          "message": "hey",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:45:11.167Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 129,
+          "message": "reset",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:44:25.527Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 128,
+          "message": "RIGHT NOWW",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:43:02.768Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 127,
+          "message": "chicken nuggies",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:41:29.965Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 126,
+          "message": "hey",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:35:46.740Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 125,
+          "message": "i want dinner",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:31:28.139Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "2❤️"
+            },
+            {
+              "user": 38587,
+              "react": "1💀"
+            }
+          ]
+        },
+        {
+          "id": 124,
+          "message": "hey",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:27:06.403Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "2❤️"
+            }
+          ]
+        },
+        {
+          "id": 123,
+          "message": "sure",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T07:24:25.241Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 122,
+          "message": "pleasee",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T06:48:11.950Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 121,
+          "message": "new msg",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T06:32:24.289Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "0❤️u"
+            },
+            {
+              "user": 38587,
+              "react": "0👍u"
+            }
+          ]
+        },
+        {
+          "id": 120,
+          "message": "hey",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T05:27:15.686Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": {}
+            },
+            {
+              "user": 38587,
+              "react": {}
+            },
+            {
+              "user": 38587,
+              "react": {}
+            },
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
+        },
+        {
+          "id": 119,
+          "message": "hello world!",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T05:25:05.850Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": {}
+            },
+            {
+              "user": 38587,
+              "react": {}
+            },
+            {
+              "user": 38587,
+              "react": {}
+            },
+            {
+              "user": 38587,
+              "react": {}
+            }
+          ]
+        }
+      ]
     },
     "674041": {
       "name": "channel 3awd",
       "creator": 38587,
       "private": false,
-      "description": "",
+      "description": "This channel has no descriptionawd",
       "createdAt": "2023-10-23T13:19:24.822Z",
       "members": [
         38587
       ],
-      "messages": []
+      "messages": [
+        {
+          "id": 89,
+          "message": "26",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:13:15.798Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 88,
+          "message": "25",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:13:10.618Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 87,
+          "message": "24",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:13:04.498Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 86,
+          "message": "23",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:58.884Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 85,
+          "message": "22",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:55.841Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 84,
+          "message": "21",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:51.353Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 83,
+          "message": "20",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:49.247Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 82,
+          "message": "19",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:46.556Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 81,
+          "message": "18",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:43.636Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 80,
+          "message": "17",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:38.913Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 79,
+          "message": "16",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:36.945Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 78,
+          "message": "15",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:34.502Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 77,
+          "message": "14",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:33.051Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 76,
+          "message": "13",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:31.433Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 75,
+          "message": "12",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:29.914Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 74,
+          "message": "11",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:28.605Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 73,
+          "message": "10",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:26.627Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 72,
+          "message": "9",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:21.208Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 71,
+          "message": "8",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:20.065Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 70,
+          "message": "7",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:19.014Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 69,
+          "message": "6",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:17.872Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 68,
+          "message": "5",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:16.439Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 67,
+          "message": "4",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:15.435Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 66,
+          "message": "3",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:13.712Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": true,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "💀"
+            },
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 65,
+          "message": "2",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:12.172Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 64,
+          "message": "hi",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T12:12:02.274Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": true,
+          "reacts": []
+        }
+      ]
     },
     "745734": {
       "name": "private 4 haydenawdefw",
@@ -60,7 +1725,7 @@
       "messages": []
     },
     "868067": {
-      "name": "public channelasddawsqwd",
+      "name": "public channel (with msgs)",
       "creator": 63419,
       "private": false,
       "description": "qsQS",
@@ -68,9 +1733,106 @@
       "members": [
         63419,
         61532,
+        97421,
         38587
       ],
       "messages": [
+        {
+          "id": 49,
+          "message": "adwd",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T11:38:00.658Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
+        },
+        {
+          "id": 48,
+          "message": "PLEASE ADD",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T11:33:13.133Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 47,
+          "message": "poopy pants",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T11:32:37.826Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
+        },
+        {
+          "id": 46,
+          "message": "hey",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T11:29:54.978Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 45,
+          "message": "poo",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T11:15:20.784Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 44,
+          "message": "nihaomar",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T09:03:43.203Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 43,
+          "message": "cutie patootie ere",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T09:00:52.357Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": []
+        },
         {
           "id": 42,
           "message": "yeah, i do! i just didn't think that you did",
@@ -228,8 +1990,17 @@
           "sentAt": "2023-10-23T11:56:43.117Z",
           "edited": false,
           "editedAt": null,
-          "pinned": false,
-          "reacts": []
+          "pinned": true,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            },
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
         },
         {
           "id": 26,
@@ -239,7 +2010,16 @@
           "edited": false,
           "editedAt": null,
           "pinned": false,
-          "reacts": []
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "❤️"
+            },
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
         },
         {
           "id": 25,
@@ -249,7 +2029,12 @@
           "edited": false,
           "editedAt": null,
           "pinned": false,
-          "reacts": []
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
         },
         {
           "id": 24,
@@ -468,7 +2253,7 @@
           "sentAt": "2023-10-23T11:56:42.503Z",
           "edited": false,
           "editedAt": null,
-          "pinned": false,
+          "pinned": true,
           "reacts": []
         },
         {
@@ -494,15 +2279,119 @@
       ]
     },
     "888346": {
-      "name": "new channel ",
+      "name": "new channeladwd",
+      "creator": 38587,
+      "private": false,
+      "description": "This channel has no description",
+      "createdAt": "2023-10-24T00:56:36.487Z",
+      "members": [
+        38587,
+        97421
+      ],
+      "messages": [
+        {
+          "id": 55,
+          "message": "PEEPOOOPEEPOO",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T11:59:08.253Z",
+          "edited": true,
+          "editedAt": "2023-10-26T01:44:23.098Z",
+          "pinned": false,
+          "reacts": []
+        },
+        {
+          "id": 54,
+          "message": "abbaa9",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-25T11:58:26.248Z",
+          "edited": true,
+          "editedAt": "2023-10-26T01:42:22.451Z",
+          "pinned": false,
+          "reacts": []
+        }
+      ]
+    },
+    "888765": {
+      "name": "",
       "creator": 38587,
       "private": false,
       "description": "",
-      "createdAt": "2023-10-24T00:56:36.487Z",
+      "createdAt": "2023-10-26T12:57:23.818Z",
       "members": [
         38587
       ],
-      "messages": []
+      "messages": [
+        {
+          "id": 173,
+          "message": "4",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T13:04:37.876Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 172,
+          "message": "3",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T12:57:31.494Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 171,
+          "message": "2",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T12:57:30.434Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "💀"
+            }
+          ]
+        },
+        {
+          "id": 170,
+          "message": "1",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T12:57:29.074Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "💀"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        }
+      ]
     },
     "973574": {
       "name": "Private channel!",
@@ -510,11 +2399,73 @@
       "private": true,
       "description": "awdawdawdawd",
       "createdAt": "2023-10-24T01:39:16.547Z",
+      "members": [],
+      "messages": []
+    },
+    "998617": {
+      "name": "",
+      "creator": 38587,
+      "private": false,
+      "description": "",
+      "createdAt": "2023-10-26T14:13:35.790Z",
       "members": [
         38587
       ],
-      "messages": []
+      "messages": [
+        {
+          "id": 181,
+          "message": "3",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T14:13:44.331Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        },
+        {
+          "id": 180,
+          "message": "2",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T14:13:43.207Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "💀"
+            },
+            {
+              "user": 38587,
+              "react": "❤️"
+            }
+          ]
+        },
+        {
+          "id": 179,
+          "message": "1",
+          "image": "",
+          "sender": 38587,
+          "sentAt": "2023-10-26T14:13:41.964Z",
+          "edited": false,
+          "editedAt": null,
+          "pinned": false,
+          "reacts": [
+            {
+              "user": 38587,
+              "react": "👍"
+            }
+          ]
+        }
+      ]
     }
   },
-  "nextMessageId": 43
+  "nextMessageId": 182
 }
