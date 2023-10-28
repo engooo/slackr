@@ -16,11 +16,10 @@ export const showChannelDetailsModal = new bootstrap.Modal(
 export const inviteUsersModal = new bootstrap.Modal(
 	document.getElementById("invite-users-modal")
 );
-
 export const userProfileModal = new bootstrap.Modal(
 	document.getElementById("user-profile-modal")
-)
+);
+
 document.getElementById("create-channel").addEventListener("click", () => {
 	createChannelModal.show();
 });
-

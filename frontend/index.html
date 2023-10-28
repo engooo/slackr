@@ -95,10 +95,10 @@
       <div id="page-register" class="page-block">
         <h3>Register</h3>
         <form>
-          Email: <input id="register-email" type="email" value="hayden@unsw.edu.au" /><br />
-          Name: <input id="register-name" type="text" value="Hayden" /><br />
-          Password: <input id="register-password" type="password" value="123456abcdefg" /><br />
-          Password (confirm): <input id="register-password-confirm" type="password" value="123456abcdefg" /><br />
+          Email: <input id="register-email" type="email" value="" /><br />
+          Name: <input id="register-name" type="text" value="" /><br />
+          Password: <input id="register-password" type="password" value="" /><br />
+          Password (confirm): <input id="register-password-confirm" type="password" value="" /><br />
           <button type="button" id="register-submit">Submit</button>
         </form>
         Already registered? <a href="#" class="redirect" redirect="login">Login</a> 
@@ -108,8 +108,8 @@
       <div id="page-login" class="page-block">
         <h3>Login</h3>
         <form>
-          Email: <input id="login-email" type="email" value="hayden@gmail.com" /><br />
-          Password: <input id="login-password" type="password" value="password" /><br />
+          Email: <input id="login-email" type="email" value="" /><br />
+          Password: <input id="login-password" type="password" value="" /><br />
           <button type="button" id="login-submit">Submit</button>
         </form>
         Not yet a member? <a href="#" class="redirect" redirect="register">Register</a> 
@@ -304,18 +304,15 @@
                       <h4>Change Photo</h4>
                       <input type="file" class="hide-profile" id="photo-upload" accept="image/*" >
                     </div>
-                    
                   </div>
                   <div class="col-md-8 profile-details">
                     <!-- User Profile Info -->
-                    
                     <h4>Name</h4>
                     <p id="user-profile-name" contenteditable="false">User's Name</p>
                     <h4>Bio</h4>
                     <p id="user-profile-bio" contenteditable="false">User's Bio</p>
                     <h4>Email</h4>
                     <p id="user-profile-email" contenteditable="false">User's Email</p>
-
                     <div class="hide-profile">
                       <h4>New Password</h4>
                       <input type="password" id="new-password" > 

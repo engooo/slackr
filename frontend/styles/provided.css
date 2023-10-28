@@ -6,7 +6,6 @@ html, body {
     margin-top: 20px;
     background-color: #fafafa;
     height: 100%;
-    /* width: 100%; */
     font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -26,42 +25,10 @@ html, body {
     display: none;
 }
 
-#text-channel-template {
-    display: none;
-}
-
-#channel-cog, .btn-outline-secondary {
-    margin-right: 10px;
-}
-
-#switch-channel-button {
-    margin-right: 10px;
-    display: none;
-}
-
-#message-template {
-    display: none;
-}
-
-#user-item-template {
-    display: none;
-}
-
-#previous-page {
-    display: none;
-}
-
-
-
-/* body{
-    background-color: #f4f7f6;
-    margin-top:20px;
-} */
 .main-container {
     background: #fff;
     border: 0;
     margin-bottom: 30px;
-    /* border-radius: .55rem; */
     position: relative;
     width: 100%;
     
@@ -162,11 +129,9 @@ html, body {
     background: #efefef
 }
 
-
 .chat .chat-message {
     padding: 20px
 }
-
 
 .float-right {
     float: right
@@ -181,6 +146,30 @@ html, body {
     height: 0
 }
 
+#text-channel-template {
+    display: none;
+}
+
+#channel-cog, .btn-outline-secondary {
+    margin-right: 10px;
+}
+
+#switch-channel-button {
+    margin-right: 10px;
+    display: none;
+}
+
+#message-template {
+    display: none;
+}
+
+#user-item-template {
+    display: none;
+}
+
+#previous-page {
+    display: none;
+}
 
 /* For mobile device */
 @media only screen and (max-width: 767px) {

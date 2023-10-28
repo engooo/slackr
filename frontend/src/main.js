@@ -45,23 +45,24 @@ let selectedChannelId = null;
 let selectedMessageId = null;
 let selectedMessageEdited = null;
 let selectedMessageText = null;
-let mobile = false;
-let pageIndex = 1;
-let numMessages = 0;
+let leftChannel = null;
 let leftChannelId = null;
+let profilePicture = null;
+let mobile = false;
+let viewingPin = false;
+let pageIndex = 1;
 let pinnedPageIndexStart = 1;
 let pinnedPageIndex = 1;
+let numMessages = 0;
 let skullNum = 0;
 let heartNum = 0;
 let thumbsNum = 0;
-// let reacted = null;
-let leftChannel = null;
-let viewingPin = false;
-let profilePicture = null;
 
+/**
+ * Loads messages given the channelId
+ */
 function loadMessages(channelId, index) {
-	console.log("load messages");
-
+	clearMessages();
 	apiCallGet(`message/${channelId}?start=${index}`, {}, true, globalToken)
 		.then((body) => {
 			numMessages = body.messages.length;
@@ -74,17 +75,37 @@ function loadMessages(channelId, index) {
 			if (pageIndex === 1) {
 				previousPage.style.display = "none";
 			}
-			console.log("numMessages", numMessages);
+
 			body.messages.forEach((message) => {
-				console.log("in loadmessages", message);
 				addMessage(message);
 			});
-			console.log(body, "end");
 		})
-		.catch(() => {
-			console.log("failed to load msgs");
+		.catch((error) => {
+			throw error;
 		});
 }
+
+/**
+ * Hide error popup
+ */
+function hideErrorPopup() {
+	const errorPopup = document.querySelector(".error-popup");
+	errorPopup.style.display = "none";
+}
+
+// Add an event listener to the close button
+const closeButton = document.querySelector(".close-button");
+closeButton.addEventListener("click", hideErrorPopup);
+
+// For mobile responsiveness, button shows list of channels
+const switchChannelButton = document.getElementById("switch-channel-button");
+switchChannelButton.addEventListener("click", () => {
+	const channelList = document.getElementById("clist");
+	channelList.style.display = "block";
+	mobile = true;
+});
+
+window.addEventListener("resize", updateResponsiveScreen);
 
 // 2.3.2 DEALING WITH PAGINATION
 const nextPage = document.getElementById("next-page");
@@ -93,7 +114,6 @@ nextPage.addEventListener("click", () => {
 	clearMessages();
 	pageIndex++;
 	loadMessages(selectedChannelId, (pageIndex - 1) * 25);
-
 	previousPage.style.display = "block";
 });
 
@@ -112,7 +132,6 @@ function isValidMessage(message) {
 const sendMessageButton = document.getElementById("send-button");
 sendMessageButton.addEventListener("click", () => {
 	const messageText = document.getElementById("send-message").value;
-	console.log("messageText", messageText);
 	if (isValidMessage(messageText)) {
 		showErrorPopup("Empty Message!");
 	} else {
@@ -126,10 +145,7 @@ sendMessageButton.addEventListener("click", () => {
 			globalToken
 		)
 			.then((body) => {
-				console.log("sendMessageButton success", body);
 				document.getElementById("send-message").value = "";
-
-				console.log(selectedChannelId);
 				apiCallGet(
 					`message/${selectedChannelId}?start=0`,
 					{},
@@ -138,16 +154,17 @@ sendMessageButton.addEventListener("click", () => {
 				)
 					.then((body) => {
 						// pageIndex++;
-						console.log("messages[0]", body.messages[0]);
+
 						const message = body.messages[0];
 						addMessage(message, false);
 					})
-					.catch(() => {
+					.catch((error) => {
 						console.log("failed to load msgs from send");
 					});
 			})
-			.catch(() => {
+			.catch((error) => {
 				console.log("sendMessageButton failed");
+				throw error;
 			});
 	}
 });
@@ -165,11 +182,9 @@ deleteMessageButton.addEventListener("click", () => {
 			const messageToDelete = document.querySelector(
 				`.message-element[data-message-id="${selectedMessageId}"]`
 			);
-			console.log(messageToDelete);
 			messageToDelete.remove();
 		})
 		.catch(() => {
-			console.log("msg didnt");
 			errorPopup("User has no permission to delete this message");
 		});
 	messageActionsModal.hide();
@@ -251,6 +266,9 @@ function updateEditMessageNow(messagesObject) {
 	messageToEdit.querySelector("#message-text").innerText = message;
 }
 
+/**
+ * Given the messages object, will return specific message property
+ */
 function getMessageProperty(messagesObject, messageId, msgProperty) {
 	for (const message of messagesObject) {
 		console.log("in for loop", message, message.id, messageId);
@@ -268,7 +286,6 @@ reactions.forEach((emoji) => {
 	emoji.addEventListener("click", (event) => {
 		const emojiElementId = event.currentTarget.id;
 		let emojiText = document.getElementById(`text-${emojiElementId}`).innerText;
-		console.log("wei", emojiElementId, emojiText);
 		if (emojiText.includes("💀")) {
 			emojiText = "💀";
 		} else if (emojiText.includes("❤️")) {
@@ -276,7 +293,6 @@ reactions.forEach((emoji) => {
 		} else if (emojiText.includes("👍")) {
 			emojiText = "👍";
 		}
-		console.log(emojiText, "emoji to be inputted");
 		updateNumReactions(emojiText);
 	});
 });
@@ -284,7 +300,6 @@ reactions.forEach((emoji) => {
 function updateNumReactions(emojiText) {
 	// find that messages reacts
 	let thisPageIndex = (pageIndex - 1) * 25;
-	console.log(9.2, skullNum, heartNum, thumbsNum);
 	apiCallGet(
 		`message/${selectedChannelId}?start=${thisPageIndex}`,
 		{},
@@ -298,114 +313,58 @@ function updateNumReactions(emojiText) {
 				selectedMessageId,
 				"reacts"
 			);
-			console.log(1, messagesObject);
-			console.log(
-				1.69,
-				getMessageProperty(messagesObject, selectedMessageId, "message")
-			);
+
 			// CHECK IF USER HAS REACTED
 			let reacted = false;
 			// No reactions from any users on message
-			console.log("emoji nums increment1.69b4", skullNum, heartNum, thumbsNum);
-			console.log(2, reactMessages, "reactMessages", selectedMessageId);
-
-			console.log("emoji nums increment1.69", skullNum, heartNum, thumbsNum);
 			if (reactMessages.length === 0) {
 				reactApi("react", emojiText);
-
-				console.log("emoji nums increment1", skullNum, heartNum, thumbsNum);
 				incrementReaction(emojiText);
-				console.log(
-					"emoji nums after increment1",
-					skullNum,
-					heartNum,
-					thumbsNum
-				);
 			} else {
 				// Check if user has reacted to this message
 				resetEmojiNum();
 				for (const reactElement of reactMessages) {
-					console.log(reactElement, 3.3);
 					// Iterate through reactions to check if user has reacted to msg
 					let reactValue = reactElement.react;
-					console.log(reactValue, reactElement.user);
+
 					incrementReaction(reactElement.react);
 					if (reactValue === emojiText && reactElement.user === currentUserId) {
 						reacted = true;
-						console.log("should be true", reactValue, emojiText);
 					}
-
-					console.log("emoji nums increment2", skullNum, heartNum, thumbsNum);
-					// incrementReaction(emojiText)
-					console.log(
-						"emoji nums after increment2",
-						skullNum,
-						heartNum,
-						thumbsNum
-					);
 				}
-				console.log(2, reactMessages, "reactMessages");
 
-				console.log(3, reacted, emojiText);
 				if (reacted === true) {
 					reactApi("unreact", emojiText);
-					console.log(4);
 
 					decrementReaction(emojiText);
-					console.log("emoji nums decrement", skullNum, heartNum, thumbsNum);
-					console.log(4.5);
-					// something in here is wrong
-					//TODO: if skullNum === 0, show emoji block
 				} else {
-					console.log(6, "should react to msg");
 					reactApi("react", emojiText);
 					// Count number of reactions
-					console.log(
-						"emoji nums increment3",
-						skullNum,
-						heartNum,
-						thumbsNum,
-						emojiText
-					);
+
 					incrementReaction(emojiText);
-					console.log(
-						"emoji nums afrter increment3",
-						skullNum,
-						heartNum,
-						thumbsNum,
-						emojiText
-					);
 				}
 			}
 
-			console.log(7);
-
-			console.log(1);
 			const messageToEdit = document.querySelector(
 				`.message-element[data-message-id="${selectedMessageId}"]`
 			);
 			updateReactionUI(messageToEdit);
-
-			console.log(5);
 		})
 		.catch(() => {
 			console.log("updateNumreactions failed");
 		});
-	console.log(9.3, skullNum, heartNum, thumbsNum);
 }
 
 function updateReactionUI(messageToEdit) {
 	console.log(messageToEdit, "mesagetoedit");
-	console.log(4.6);
 	messageToEdit.querySelector("#text-skull").innerText =
 		skullNum > 0 ? skullNum + "💀" : "💀";
-	console.log(4.7);
+
 	messageToEdit.querySelector("#text-heart").innerText =
 		heartNum > 0 ? heartNum + "❤️" : "❤️";
-	console.log(4.8);
+
 	messageToEdit.querySelector("#text-thumbs-up").innerText =
 		thumbsNum > 0 ? thumbsNum + "👍" : "👍";
-	console.log(4.9);
 }
 
 function incrementReaction(reactValue) {
@@ -448,13 +407,11 @@ function reactApi(reactAction, reactEmoji) {
 // 2.3.7 Pinning messages
 const pinMessageButton = document.getElementById("pin-button");
 pinMessageButton.addEventListener("click", () => {
-	console.log("pin button clicked!");
 	apiPinMsg("pin");
 });
 
 const unpinMessageButton = document.getElementById("unpin-button");
 unpinMessageButton.addEventListener("click", () => {
-	console.log("unpin button clicked!");
 	apiPinMsg("unpin");
 });
 
@@ -463,7 +420,6 @@ viewPinnedMessages.addEventListener("click", () => {
 	viewingPin = !viewingPin;
 	pinnedPageIndexStart = 1;
 	if (viewingPin) {
-		console.log("view pinned msgs yipyip");
 		clearMessages();
 		numMessages = 0;
 		loadPinnedMessages();
@@ -482,14 +438,12 @@ function loadPinnedMessages() {
 		.then((body) => {
 			numMessages = body.messages.length;
 			/* No more messages left so remove next button*/
-			console.log("numMessages", numMessages);
+
 			const pinnedMessages = body.messages.filter((message) => message.pinned);
 			pinnedMessages.forEach((message) => {
 				addMessage(message);
-				console.log(message, "should get pinned");
 			});
 			if (numMessages === 0) {
-				console.log("wghoop");
 			} else {
 				pinnedPageIndexStart++;
 				loadPinnedMessages();
@@ -522,16 +476,15 @@ addUsersButton.addEventListener("click", () => {
 	inviteUsersModal.hide();
 	const usersSelected = document.querySelectorAll(".user-checkbox:checked");
 	usersSelected.forEach((checkbox) => {
-		console.log(checkbox.parentElement);
 		const userId = checkbox.parentElement.getAttribute("data-user-id");
-		console.log(userId, "pls printid");
+
 		apiInviteUser(selectedChannelId, parseInt(userId, 10), globalToken);
 	});
 });
 document.getElementById("invite-users-button").addEventListener("click", () => {
 	clearInviteList();
 	populateInviteList();
-	console.log("called 2.34");
+
 	inviteUsersModal.show();
 });
 
@@ -558,12 +511,6 @@ const populateInviteList = () => {
 			return Promise.all(usersMapped);
 		})
 		.then((usersMapped) => {
-			// sort alphabetically
-			// usersMapped.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
-			// console.log(usersMapped, 'b4 filter')
-			// usersMapped.filter(user => !isUserMember(user.userId));
-			// return Promise.all(usersMapped)
-
 			// Sort alphabetically
 			usersMapped.sort((a, b) =>
 				a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
@@ -580,39 +527,31 @@ const populateInviteList = () => {
 			});
 		})
 		.then((filteredUsers) => {
-			console.log("surely filtered", filteredUsers);
 			createUserItems(filteredUsers);
 		});
 };
 const createUserItems = (inviteList) => {
 	// clearInviteList()
-	console.log("hello r u being called");
+
 	const userItemTemplate = document.getElementById("user-item-template");
 	const userItemList = document.querySelector(".user-list");
-	console.log(44.4, inviteList);
+
 	inviteList.forEach((user) => {
-		console.log(user, 46);
 		const userItem = userItemTemplate.cloneNode(true);
-		console.log(44.5);
+
 		userItem.removeAttribute("id");
 		userItem.setAttribute("data-user-id", user.userId);
-		console.log(44.3);
+
 		userItem.querySelector(".user-checkbox").value = user.name;
 		userItem.querySelector('label[for="user1"]').innerText = user.name;
-		//TODO idk if this works for input and labels
-		console.log(44.2);
+
 		userItem.style.display = "block";
 		userItemList.append(userItem);
-
-		console.log(userItem, "44.1");
 	});
-	// console.log(userItem, 'new element??s')
-	// userItemList.appendChild(userItem)
 };
 // TODO: make is user member of channel
 const isUserMember = (userId) => {
 	return apiCallChannel(selectedChannelId, globalToken).then((channel) => {
-		console.log(channel.members.includes(userId), "goteem", userId);
 		return channel.members.includes(userId);
 	});
 };
@@ -625,32 +564,25 @@ const messageProfileEvent = (messageElement) => {
 		document
 			.querySelectorAll(".hide-profile")
 			.forEach((e) => (e.style.display = "none"));
-
 		const userId = messageElement.getAttribute("data-sender-id");
 		populateProfile(userId);
 	});
 };
+
 let currentEmail;
 const populateProfile = (userId) => {
 	apiUserDetails(userId, globalToken).then((userDetails) => {
 		currentEmail = userDetails.email;
-		console.log(
-			"userdee",
-			userDetails.name,
-			userDetails.bio,
-			userDetails.email,
-			userDetails.image
-		);
-
 		document.getElementById("user-profile-name").innerText = userDetails.name;
 		document.getElementById("user-profile-bio").innerText = userDetails.bio;
 		document.getElementById("user-profile-email").innerText = userDetails.email;
 
 		if (userDetails.image !== null) {
 			document.getElementById("user-profile-photo").src = userDetails.image;
+		} else {
+			document.getElementById("user-profile-photo").src = "default.png";
 		}
 
-		console.log("watdis", userId, currentUserId);
 		if (parseInt(userId, 10) === parseInt(currentUserId, 10)) {
 			document
 				.querySelectorAll(".hide-profile")
@@ -679,7 +611,6 @@ let passwordVisble = false;
 
 saveProfileChanges.addEventListener("click", () => {
 	userProfileModal.hide();
-	console.log(newPassword.value);
 
 	const name = document.getElementById("user-profile-name").innerText;
 	const email = document.getElementById("user-profile-email").innerText;
@@ -712,19 +643,12 @@ saveProfileChanges.addEventListener("click", () => {
 	}
 
 	if (selectedFile) {
-		console.log("yipee file was uploaded");
 		fileToDataUrl(selectedFile).then((dataUrl) => {
 			body.image = dataUrl;
-			console.log(dataUrl);
+
 			apiCallPut("user", body, true, globalToken);
 		});
-
-		console.log(name, bio, email, image, password, "did vals change");
 	}
-
-	// fileToDataUrl()
-
-	console.log(body);
 });
 
 // Showing/Hiding Password
@@ -739,54 +663,32 @@ function createMessageElement(message) {
 	element.removeAttribute("id");
 	element.setAttribute("data-message-id", message.id);
 	element.setAttribute("data-sender-id", message.sender);
-	console.log(5.1);
+
 	// Access and process message properties here
 	const messageId = message.id;
 	const messageText = message.message;
 	let messageImage = message.image;
 	const edited = message.edited;
 	const reacts = message.reacts; // This is an array of reacts
-	console.log("messageImaWTF", messageImage);
-	console.log(
-		"createMsg",
-		reacts.length,
-		reacts,
-		messageId,
-		messageText,
-		message
-	);
+
 	resetEmojiNum();
 	if (reacts.length > 0) {
 		for (const emoji of reacts) {
-			console.log("emojia", emoji, emoji.react);
-
-			console.log("emoji nums increment4", skullNum, heartNum, thumbsNum);
 			incrementReaction(emoji.react);
-			console.log("emoji nums after increment4", skullNum, heartNum, thumbsNum);
 		}
-		console.log("create msg emoji", skullNum, heartNum, thumbsNum);
-		// const messageToEdit = document.querySelector(`.message-element[data-message-id="${selectedMessageId}`)
+
 		updateReactionUI(element);
 		resetEmojiNum();
 	}
-	console.log(5.2);
-	// console.log('messageimage', messageImage)
 
 	if (
 		messageImage === undefined ||
 		messageImage === null ||
 		messageImage === ""
 	) {
-		console.log("messageimage", messageImage);
 		messageImage = "default.png";
 	}
-	console.log("messageImage from createmessage ", messageImage);
-	// apiUserDetails(message.sender, globalToken).then(user => {
 
-	// })
-	// element.querySelector("#message-profile-picture").src = messageImage;
-	// element.querySelector("#message-username").innerText = message.sender;
-	console.log(5.7);
 	element.querySelector("#message-text").innerText = messageText;
 	if (edited) {
 		element.querySelector("#message-time").innerText =
@@ -797,63 +699,50 @@ function createMessageElement(message) {
 		);
 	}
 
-	console.log(5.8);
 	apiUserDetails(message.sender, globalToken)
 		.then((userDetails) => {
 			element.querySelector("#message-username").innerText = userDetails.name;
-			element.querySelector("#message-profile-picture").src = userDetails.image;
+			if (userDetails.image === null) {
+				element.querySelector("#message-profile-picture").src = "default.png";
+			} else {
+				element.querySelector("#message-profile-picture").src =
+					userDetails.image;
+			}
 		})
 		.catch(() => {
 			console.log("apiUserDetails(userID) failed");
 		});
-	console.log("createMessageElement", element);
-	console.log(5.9);
+
 	return element;
 }
-
-const loadDashboard = () => {
-	apiCallGet("channel", {}, true, globalToken).then((body) => {
-		console.log("load dashboard", body);
-		// Create a div for each text channel
-		body.channels.forEach((channel) => {
-			console.log("peepeepoo");
-			// Creates channel div if it does not already exist
-			if (!doesChannelDivExists(channel.id)) {
-				addChannel(channel);
-			}
-			// Will remove private channels user is not apart of
-			if (
-				!channel.members.includes(currentUserId) &&
-				channel.private === true
-			) {
-				removePrivateChannelDiv(channel);
-			}
-		});
-	});
-};
-
+/**
+ * Adds message element to UI
+ */
 function addMessage(message, prepend = true) {
-	console.log("hey");
 	const messageElement = createMessageElement(message);
 	const messageList = document.getElementById("message-list");
 	const messageText = messageElement.querySelector("#message-text");
-	console.log(3.1);
+
 	// prepend if message is being sent, append if message is added to backend
 	if (prepend) {
 		messageList.prepend(messageElement);
 	} else {
 		messageList.appendChild(messageElement);
 	}
+	// Handles viewing profiles when username is clicked
 	messageProfileEvent(messageElement);
-	console.log(3.2);
+
+	// Handles viewing message actions and viewing profiles
 	messageText.addEventListener("click", () => {
 		selectedMessageId = message.id;
 
+		// Handle count of reactions of a message
 		resetEmojiNum();
 		if (message.reacts.length > 0) {
 			message.reacts.forEach((emoji) => incrementReaction(emoji.react));
 		}
 
+		// Disables edit and delete button if message clicked is not from user
 		if (message.sender !== currentUserId) {
 			editButton.style.display = "none";
 			deleteMessageButton.style.display = "none";
@@ -864,117 +753,95 @@ function addMessage(message, prepend = true) {
 
 		selectedMessageId = message.id;
 		selectedMessageText = message.message;
-		console.log(
-			"selectedMessageId IS THIS",
-			selectedMessageId,
-			message,
-			message.reacts
-		);
-		console.log(
-			selectedMessageText,
-			"emoji nums increment5.1",
-			skullNum,
-			heartNum,
-			thumbsNum
-		);
 		selectedMessageEdited = message.edited;
-
-		console.log(selectedMessageText);
-
 		messageActionsModal.show();
 	});
 }
 
+/**
+ * Reset reaction counts
+ */
 const resetEmojiNum = () => {
 	skullNum = 0;
 	heartNum = 0;
 	thumbsNum = 0;
 };
 
+/**
+ * Handles actions for when channel is clicked
+ */
 export function channelSelected(channelId) {
 	if (channelId !== null) {
 		apiCallChannel(channelId, globalToken)
 			.then((channel) => {
-				console.log("channelSelected body", channel);
 				localStorage.setItem("channelId", channelId);
 				selectedChannelId = channelId;
 
+				// change heading to channel name
 				document.getElementById("channel-header").style.display = "block";
 				document.getElementById("channel-header").innerText = channel.name;
 
+				// reveal action buttons
 				for (const btn of document.querySelectorAll(".hide-btn")) {
 					btn.style.display = "block";
 				}
-				console.log(1, "hehe");
+
 				updateChannelDetails(channel);
-				console.log(2, "updateChannelDetails lol");
+				// fixes screen responsiveness in mobile
 				updateResponsiveScreen();
-				console.log(3, "tree");
 
 				clearMessages();
-				console.log(4, "cleared4");
 				loadMessages(selectedChannelId, 0);
-				console.log(5, "loaded5");
 				localStorage.setItem("leftChannelId", selectedChannelId);
 			})
 			.catch(() => {
-				// modal popup for joining server if the user is not part of a public server
+				// User is not a member of the channel
 
+				// Prompt for user to join channel
+				joinServerModal.show();
+
+				// Handles user joining the server
 				document
 					.getElementById("join-server-success")
 					.addEventListener("click", () => {
 						apiJoinServer(channelId, globalToken);
 						selectedChannelId = channelId;
 					});
+
+				// Handles refresh when leaving server
 				let leftChannelId = localStorage.getItem("leftChannelId");
-				console.log(
-					"joinServerModal",
-					channelId,
-					selectedChannelId,
-					globalToken
-				);
-				// Show modal for joining server
-				// if user is not apart of channel, show modal
-				// if (localStorage.getItem('leftChannelId') !== selectedChannelId) {
 				if (leftChannelId === "null" || leftChannelId === null) {
-					console.log(selectedChannelId, "servermodal1");
 					joinServerModal.hide();
 					localStorage.setItem("leftChannelId", leftChannelId);
-				} else {
-					console.log(selectedChannelId, "sercermodal2");
-					joinServerModal.show();
 				}
-
-				// }
 			});
 	}
 }
 
+// Handles when user leaves channel
 document.getElementById("leave-button").addEventListener("click", () => {
 	leftChannelId = selectedChannelId;
-	// localStorage.setItem('leftChannelId', leftChannelId)
-
 	const leavePromise = apiLeaveServer(selectedChannelId, globalToken);
 	leavePromise.then(() => {
 		localStorage.setItem("leftChannelId", null);
-		console.log("LEAVEPROMISE");
 	});
 });
 
+// Updates channel description details
 document.getElementById("save-changes-button").addEventListener("click", () => {
 	const channelName = document.getElementById("channel-details-name").innerText;
 	const channelDetails = document.getElementById(
 		"channel-details-description"
 	).innerText;
-	// console.log(channelName, channel.id)
 	apiSaveChanges(selectedChannelId, channelName, channelDetails, globalToken);
-
 });
 
+// Shows modal to create a channel
 document.getElementById("create-channel").addEventListener("click", () => {
 	createChannelModal.show();
 });
 
+// Handles the creation of a channel
 document
 	.getElementById("create-channel-button")
 	.addEventListener("click", () => {
@@ -996,14 +863,14 @@ document
 		});
 	});
 
-// Allow user to join server modal
-
-// Show channel details via modal
-
+// Display channel details
 document.getElementById("channel-cog").addEventListener("click", () => {
 	showChannelDetailsModal.show();
 });
 
+/**
+ * Display certain pages given pagename
+ */
 const showPage = (pageName) => {
 	for (const page of document.querySelectorAll(".page-block")) {
 		page.style.display = "none";
@@ -1014,6 +881,7 @@ const showPage = (pageName) => {
 	}
 };
 
+// Handles registeration of user
 document.getElementById("register-submit").addEventListener("click", (e) => {
 	const email = document.getElementById("register-email").value;
 	const name = document.getElementById("register-name").value;
@@ -1047,6 +915,7 @@ document.getElementById("register-submit").addEventListener("click", (e) => {
 	}
 });
 
+// Handles login of user
 document.getElementById("login-submit").addEventListener("click", (e) => {
 	const email = document.getElementById("login-email").value;
 	const password = document.getElementById("login-password").value;
@@ -1065,6 +934,7 @@ document.getElementById("login-submit").addEventListener("click", (e) => {
 		});
 });
 
+// Handles logout of user
 document.getElementById("logout").addEventListener("click", (e) => {
 	apiCallPost("auth/logout", {}, true, globalToken)
 		.then(() => {
@@ -1078,6 +948,7 @@ document.getElementById("logout").addEventListener("click", (e) => {
 		});
 });
 
+// Redirects user to certain page
 for (const redirect of document.querySelectorAll(".redirect")) {
 	const newPage = redirect.getAttribute("redirect");
 	redirect.addEventListener("click", () => {
@@ -1085,6 +956,29 @@ for (const redirect of document.querySelectorAll(".redirect")) {
 	});
 }
 
+/**
+ * Loads Dashboard after login
+ */
+const loadDashboard = () => {
+	apiCallGet("channel", {}, true, globalToken).then((body) => {
+		// Create a div for each text channel
+		body.channels.forEach((channel) => {
+			// Creates channel div if it does not already exist
+			if (!doesChannelDivExists(channel.id)) {
+				addChannel(channel);
+			}
+			// Will remove private channels user is not apart of
+			if (
+				!channel.members.includes(currentUserId) &&
+				channel.private === true
+			) {
+				removePrivateChannelDiv(channel);
+			}
+		});
+	});
+};
+
+// Handling of tokens
 const localStorageToken = localStorage.getItem("token");
 if (localStorageToken !== null) {
 	globalToken = localStorageToken;
@@ -1099,29 +993,8 @@ if (localStorageToken !== null) {
 		joinServerModal.hide();
 	}
 }
-
 if (globalToken === null) {
 	showPage("register");
 } else {
 	showPage("dashboard");
 }
-
-function hideErrorPopup() {
-	const errorPopup = document.querySelector(".error-popup");
-	errorPopup.style.display = "none";
-}
-
-// Add an event listener to the close button
-const closeButton = document.querySelector(".close-button");
-closeButton.addEventListener("click", hideErrorPopup);
-
-// For mobile responsiveness, button shows list of channels
-const switchChannelButton = document.getElementById("switch-channel-button");
-switchChannelButton.addEventListener("click", () => {
-	console.log("mobile responsive switch channel");
-	const channelList = document.getElementById("clist");
-	channelList.style.display = "block";
-	mobile = true;
-});
-
-window.addEventListener("resize", updateResponsiveScreen);
