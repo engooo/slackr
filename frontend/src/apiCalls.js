@@ -1,35 +1,4 @@
-import {clearMessages} from './helpers.js'
-/**
- * Given a js file object representing a jpg or png image, such as one taken
- * from a html file input element, return a promise which resolves to the file
- * data as a data url.
- * More info:
- *   https://developer.mozilla.org/en-US/docs/Web/API/File
- *   https://developer.mozilla.org/en-US/docs/Web/API/FileReader
- *   https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
- * 
- * Example Usage:
- *   const file = document.querySelector('input[type="file"]').files[0];
- *   console.log(fileToDataUrl(file));
- * @param {File} file The file to be read.
- * @return {Promise<string>} Promise which resolves to the file as a data url.
- */
-export function fileToDataUrl(file) {
-    const validFileTypes = [ 'image/jpeg', 'image/png', 'image/jpg' ]
-    const valid = validFileTypes.find(type => type === file.type);
-    // Bad data, let's walk away.
-    if (!valid) {
-        throw Error('provided file is not a png, jpg or jpeg image.');
-    }
-    
-    const reader = new FileReader();
-    const dataUrlPromise = new Promise((resolve,reject) => {
-        reader.onerror = reject;
-        reader.onload = () => resolve(reader.result);
-    });
-    reader.readAsDataURL(file);
-    return dataUrlPromise;
-}
+import {clearMessages, showErrorPopup} from './helpers.js'
 
 // ***** MY FUNCTIONS ******
 
@@ -149,7 +118,7 @@ export const apiCallDelete = (path, body, authed=false, globalToken) => {
 }
 
 // Returns details about a channel
-export function apiCallChannel(channelId, globalToken) {
+export const apiCallChannel = (channelId, globalToken) => {
 	return apiCallGet(`channel/${channelId}`, {}, true, globalToken)
         .then(body => {
             return body; // or return specific properties you need
@@ -161,9 +130,9 @@ export function apiCallChannel(channelId, globalToken) {
 }
 
 // Allows user to join server
-export function apiJoinServer(channelId, globalToken) {
+export const apiJoinServer = (channelId, globalToken) => {
   return apiCallPost(`channel/${channelId}/join`, {}, true, globalToken)
-				.then((body) => {
+		.then((body) => {
 					// localStorage.setItem('channelId', channelId)
           console.log(body)
 					console.log('successfulyl joined the channel');
@@ -175,7 +144,7 @@ export function apiJoinServer(channelId, globalToken) {
 }
 
 // Allows user to leave server
-export function apiLeaveServer(selectedChannelId, globalToken) {
+export const apiLeaveServer = (selectedChannelId, globalToken) => {
   return apiCallPost(`channel/${selectedChannelId}/leave`, {}, true, globalToken)
       .then(() => {
           console.log('left successfuly')
@@ -187,7 +156,7 @@ export function apiLeaveServer(selectedChannelId, globalToken) {
             btn.style.display = 'none'
           }
           clearMessages()
-          localStorage.setItem('channelId', null)
+          
 
         })
         .catch((error) => {
@@ -196,7 +165,7 @@ export function apiLeaveServer(selectedChannelId, globalToken) {
 }
 
 // Allows user to save changes to channel
-export function apiSaveChanges(selectedChannelId, channelName, channelDetails, globalToken) {
+export const apiSaveChanges = (selectedChannelId, channelName, channelDetails, globalToken) => {
     return apiCallPut(`channel/${selectedChannelId}`, {
       name: channelName,
       description: channelDetails
@@ -221,4 +190,76 @@ export function apiSaveChanges(selectedChannelId, channelName, channelDetails, g
     .catch((error) => {
       throw error
     })
+}
+
+export const apiCreateChannel = (channelName, privacySetting, channelDesc, globalToken) => {
+	return apiCallPost('channel', {
+		name: channelName,
+		private: privacySetting,
+		description: channelDesc
+	}, true, globalToken)
+	
+}
+
+export const apiLogin = (email, password, globalToken) => {
+	return apiCallPost('auth/login', {
+		email: email,
+		password: password,
+	}, globalToken)
+}
+
+export const apiUserDetails = (userId, globalToken) => {
+	return apiCallGet(`user/${userId}`, {}, true, globalToken)
+	.then(userDetails => {
+		console.log(userDetails)
+		return userDetails;
+		
+	})
+	.catch(() => {
+		console.log('getUserDetails failed');
+
+	})
+}
+
+export const apiInviteUser = (channelId, userId, globalToken) => {
+	return apiCallPost(`channel/${channelId}/invite`, {
+		userId: userId
+	}, true, globalToken)
+	.then(body => {
+		console.log('apiIncviteUser inviteduser to server', body)
+	})
+	.catch(error => {
+		console.log('apiInviteUser failed')
+		throw error
+	})
+}
+
+export const apiListUsers = (globalToken) => {
+	return apiCallGet('user', {}, true, globalToken)
+			.then((listUsers) => {
+				return listUsers
+				
+			})
+			.catch(error => {
+				console.log('apiListUsers failed')
+				throw error
+			})
+}
+
+export const apiUpdateProfile = (email, password, name, bio, image, globalToken) => {
+	return apiCallPut('user', {
+		email: email,
+		password: password,
+		name: name,
+		bio: bio,
+		image: image,
+	}, true, globalToken)
+	.then(body => {
+		console.log('yippeee profile updated', body)
+	})
+	.catch((error) => {
+		console.log('apiUpdateProfile failed', error)
+		throw error
+	})
+
 }

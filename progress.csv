@@ -12,15 +12,16 @@ section,completed
 2.3.2,Yes message pagination
     - arrow buttons on top
 2.3.3,Yes sending messages
-    - this and other features can be accessed by clicking the messages
+    - this and other features can be accessed by clicking the actual text messages
 2.3.4,Yes deleting messages
 2.3.5,Yes editing messages
 2.3.6,Yes reacting to messages
 2.3.7,Yes pinning messages
 
-2.4.1,NO
-2.4.2,NO
-2.4.3,NO
+2.4.1,Yes Inviting Users to a channel
+    - triggered with the top right person icon
+2.4.2,Yes User profiles
+2.4.3,Yes Viewing and editing users own profile
 
 2.5.1,NO
 2.5.2,NO

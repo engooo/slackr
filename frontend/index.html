@@ -1,264 +1,343 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Slackr</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- You can add your styles and scripts here -->
-  <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
-  <script type="module" src="src/helpers.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Slackr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- You can add your styles and scripts here -->
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
+    <script type="module" src="src/helpers.js"></script>
 
-  <!-- Including bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <!-- For icons -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-</head>
+    <!-- Including bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- For icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  </head>
 
-<body>
-  <main role="main">
-    <!-- PAGE DASHBOARD -->
-    <div id="page-dashboard" class="page-block">
-      <div class="dashboard-container">
-      <div class="row clearfix">
-          <div class="col-lg-12">
-              <!-- MAIN CONTAINER -->
-              <div class="main-container chat-channel">
-                  <!-- CHANNEL LIST SIDE-BAR-->
-                  <div id="clist" class="channel-list">
-                      <a href="javascript:void(0);" class="btn btn-outline-primary" id="create-channel">Create New Channel </a>   
-                      <a href="javascript:void(0);" class="btn btn-outline-danger" id="leave-button">Leave Channel </a>   
-                      <ul class="list-unstyled chat-list mt-2 mb-0" id="text-channels">
-                          <li class="clearfix text-channel" id="text-channel-template"></li>
-                      </ul>
-                  </div>
-                  
-                  <div class="chat">
-                      <!-- HEADER FOR CHAT LOG -->
-                      <div class="chat-header clearfix">
-                          <div class="row">
-                              <div class="col-lg-6">
-                                  <div class="chat-about">
-                                      <h6 class="m-b-0" id="channel-header">Welcome! Select a channel!</h6>
-                                  </div>
-                              </div>
-                              <div class="col-lg-6 hidden-sm text-right ">
-                                  <a href="javascript:void(0);" class="btn btn-outline-danger float-right" id="logout">Logout</a>
-                                  <a href="javascript:void(0);" class="btn btn-outline-primary float-right hide-btn" id="channel-cog"><i class="fa fa-gear"></i></a>
-                                  <a href="javascript:void(0);" class="btn btn-outline-secondary float-right hide-btn" id="next-page">></a>
-                                  <a href="javascript:void(0);" class="btn btn-outline-secondary float-right hide-btn" id="previous-page"><</a>
-                                  <a href="javascript:void(0);" class="btn btn-outline-secondary float-right hide-btn" id="view-pinned-messages">📌</a>
-                                  <a href="javascript:void(0);" class="btn btn-outline-warning float-right" id="switch-channel-button">Switch Channel</a>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- CHAT LOG CONTAINER -->
-                      <div class="chat-log" id="chat-log-container">
-                          <ul id="message-list" class="m-b-0">
-                              <!-- Message Div Template -->
-                              <li class="clearfix message-element" id="message-template">
-                                  <div class="message-data">
-                                      <img id="message-profile-picture" src="default.png" alt="Profile Picture">
-                                      <span id="message-username">userName</span>
-                                      <span id="message-time" class="message-data-time float-right">10:12 AM, Today</span>
-                                  </div>
-                                  <div id="message-text" class="message my-message">Are we meeting today?</div>                                    
-                                  <div class="emoji-reactions">
-                                    <span class="emoji" id="text-skull">💀</span>
-                                    <span class="emoji" id="text-heart">❤️</span>
-                                    <span class="emoji" id="text-thumbs-up">👍</span>
-                                  </div>
-                              </li>      
-                          </ul>
-                      </div>
-                      <!-- SEND MESSAGE INPUT -->
-                      <div class="chat-message clearfix">
-                          <div class="input-group mb-0">
-                              <div class="input-group-prepend">
-                                  <span class="input-group-text" id="send-button"><i class="fa fa-send"></i></span>
-                              </div>
-                              <input type="text" class="form-control" id="send-message" placeholder="Enter text here...">                                    
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      </div>
-    </div>
-
-    <!-- PAGE REGISTER -->
-    <div id="page-register" class="page-block">
-      <h3>Register</h3>
-      <form>
-        Email: <input id="register-email" type="email" value="hayden@unsw.edu.au" /><br />
-        Name: <input id="register-name" type="text" value="Hayden" /><br />
-        Password: <input id="register-password" type="password" value="123456abcdefg" /><br />
-        Password (confirm): <input id="register-password-confirm" type="password" value="123456abcdefg" /><br />
-        <button type="button" id="register-submit">Submit</button>
-      </form>
-      Already registered? <a href="#" class="redirect" redirect="login">Login</a> 
-    </div>
-
-    <!-- PAGE LOGIN -->
-    <div id="page-login" class="page-block">
-      <h3>Login</h3>
-      <form>
-        Email: <input id="login-email" type="email" value="hayden@unsw.edu.au" /><br />
-        Password: <input id="login-password" type="password" value="123456abcdefg" /><br />
-        <button type="button" id="login-submit">Submit</button>
-      </form>
-      Not yet a member? <a href="#" class="redirect" redirect="register">Register</a> 
-    </div>
-
-    <!-- ERROR POP-UPS -->
-    <div class="error-popup">
-      <span class="error-message">Your error message here.</span>
-      <button class="close-button">Close</button>
-    </div>
-
-    <!-- MODAL POPUPS -->
-    <!-- Below modal code copied from Bootstrap https://getbootstrap.com/docs/5.0/components/modal/ -->
-    <!-- Join Server Modal -->
-    <div class="modal fade" id="join-server-modal" tabindex="-1">
-      <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Want to join server?</h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body channel-details">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <button type="button" id="join-server-success" data-bs-dismiss="modal">Yes</button>
-            </div>
-          </div>
-      </div>
-    </div>
-
-    <!-- Create New Channel Modal -->
-    <div class="modal fade" id="create-channel-modal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title">Create a channel</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body create-channel">
-            <!-- New channel form -->
-            <form id="new-channel-form">
-              <div class="mb-3">
-                <label for="channel-name" class="form-label">Channel Name</label>
-                <input type="text" class="form-control" id="channel-name" required>
-              </div>
-              <div class="mb-3">
-                <label for="channel-description" class="form-label">Description (optional)</label>
-                <textarea class="form-control" id="channel-description"></textarea>
-              </div>
-              <div class="mb-3">
-                <label class="form-check-label">Privacy Setting</label>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="privacy" id="public" value="public" checked>
-                  <label class="form-check-label" for="public">Public</label>
+  <body>
+    <main role="main">
+      <!-- PAGE DASHBOARD -->
+      <div id="page-dashboard" class="page-block">
+        <div class="dashboard-container">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <!-- MAIN CONTAINER -->
+                <div class="main-container chat-channel">
+                    <!-- CHANNEL LIST SIDE-BAR-->
+                    <div id="clist" class="channel-list">
+                        <a href="javascript:void(0);" class="btn btn-outline-primary" id="create-channel">Create New Channel </a>   
+                        <a href="javascript:void(0);" class="btn btn-outline-danger" id="leave-button">Leave Channel </a>   
+                        <ul class="list-unstyled chat-list mt-2 mb-0" id="text-channels">
+                            <li class="clearfix text-channel" id="text-channel-template"></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="chat">
+                        <!-- HEADER FOR CHAT LOG -->
+                        <div class="chat-header clearfix">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="chat-about">
+                                        <h6 class="m-b-0" id="channel-header">Welcome! Select a channel!</h6>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 hidden-sm text-right ">
+                                    <a href="javascript:void(0);" class="btn btn-outline-danger float-right" id="logout">Logout</a>
+                                    <a href="javascript:void(0);" class="btn btn-outline-primary float-right hide-btn" id="channel-cog"><i class="fa fa-gear"></i></a>
+                                    <a href="javascript:void(0);" class="btn btn-outline-primary float-right" id="view-profile"><i class="fa fa-user"></i></a>
+                                    <a href="javascript:void(0);" class="btn btn-outline-secondary float-right hide-btn" id="next-page">></a>
+                                    <a href="javascript:void(0);" class="btn btn-outline-secondary float-right hide-btn" id="previous-page"><</a>
+                                    <a href="javascript:void(0);" class="btn btn-outline-secondary float-right hide-btn" id="view-pinned-messages">📌</a>
+                                    <a href="javascript:void(0);" class="btn btn-outline-secondary float-right hide-btn" id="invite-users-button"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                                    <a href="javascript:void(0);" class="btn btn-outline-warning float-right" id="switch-channel-button">Switch Channel</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CHAT LOG CONTAINER -->
+                        <div class="chat-log" id="chat-log-container">
+                            <ul id="message-list" class="m-b-0">
+                                <!-- Message Div Template -->
+                                <li class="clearfix message-element" id="message-template">
+                                    <div class="message-data">
+                                        <img id="message-profile-picture" src="default.png" alt="Profile Picture">
+                                        <span id="message-username">userName</span>
+                                        <span id="message-time" class="message-data-time float-right">10:12 AM, Today</span>
+                                    </div>
+                                    <div id="message-text" class="message my-message">Are we meeting today?</div>                                    
+                                    <div class="emoji-reactions">
+                                      <span class="emoji" id="text-skull">💀</span>
+                                      <span class="emoji" id="text-heart">❤️</span>
+                                      <span class="emoji" id="text-thumbs-up">👍</span>
+                                    </div>
+                                </li>      
+                            </ul>
+                        </div>
+                        <!-- SEND MESSAGE INPUT -->
+                        <div class="chat-message clearfix">
+                            <div class="input-group mb-0">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="send-button"><i class="fa fa-send"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="send-message" placeholder="Enter text here...">                                    
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="privacy" id="private" value="private">
-                  <label class="form-check-label" for="private">Private</label>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="create-channel-button" data-bs-dismiss="modal">Create Channel</button>
-          </div>
+            </div>
+        </div>
         </div>
       </div>
-    </div>
 
-    <!-- View/Edit Channel Details Modal -->
-    <div class="modal fade" id="channel-details-modal" tabindex="-1">
-      <div class="modal-dialog">
+      <!-- PAGE REGISTER -->
+      <div id="page-register" class="page-block">
+        <h3>Register</h3>
+        <form>
+          Email: <input id="register-email" type="email" value="hayden@unsw.edu.au" /><br />
+          Name: <input id="register-name" type="text" value="Hayden" /><br />
+          Password: <input id="register-password" type="password" value="123456abcdefg" /><br />
+          Password (confirm): <input id="register-password-confirm" type="password" value="123456abcdefg" /><br />
+          <button type="button" id="register-submit">Submit</button>
+        </form>
+        Already registered? <a href="#" class="redirect" redirect="login">Login</a> 
+      </div>
+
+      <!-- PAGE LOGIN -->
+      <div id="page-login" class="page-block">
+        <h3>Login</h3>
+        <form>
+          Email: <input id="login-email" type="email" value="hayden@gmail.com" /><br />
+          Password: <input id="login-password" type="password" value="password" /><br />
+          <button type="button" id="login-submit">Submit</button>
+        </form>
+        Not yet a member? <a href="#" class="redirect" redirect="register">Register</a> 
+      </div>
+
+      <!-- ERROR POP-UPS -->
+      <div class="error-popup">
+        <span class="error-message">Your error message here.</span>
+        <button class="close-button">Close</button>
+      </div>
+
+      <!-- MODAL POPUPS -->
+      <!-- Below modal code copied from Bootstrap https://getbootstrap.com/docs/5.0/components/modal/ -->
+      <!-- Join Server Modal -->
+      <div class="modal fade" id="join-server-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h2 class="modal-title">Want to join server?</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body channel-details">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                  <button type="button" id="join-server-success" data-bs-dismiss="modal">Yes</button>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Create New Channel Modal -->
+      <div class="modal fade" id="create-channel-modal" tabindex="-1">
+        <div class="modal-dialog">
           <div class="modal-content">
-          <div class="modal-header">
-              <h2 class="modal-title">Channel Details</h2>
+            <div class="modal-header">
+              <h2 class="modal-title">Create a channel</h2>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body channel-details">
-            <h3>Channel name</h3>
-              <p id="channel-details-name" contenteditable="true"></p>
-            <h3>Description</h3>
-              <p id="channel-details-description" contenteditable="true"></p>
-            <h3>Privacy Settings</h3>
-              <p id="channel-details-privacy"></p>
-            <h3>Created by</h3>
-              <p id="channel-details-creation"></p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary hide-btn" id="leave-button" data-bs-dismiss="modal">Leave server</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="save-changes-button" data-bs-dismiss="modal">Save changes</button>
-          </div>
-          </div>
-      </div>
-    </div>
-
-    <!-- Message Actions Modal-->
-    <div class="modal fade" id="message-actions-modal" tabindex="-1" aria-labelledby="messageActionsModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" >Message Actions</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="message-actions">
-              <button class="btn btn-outline-secondary react-button" data-bs-dismiss="modal" id="skull">💀</button>
-              <button class="btn btn-outline-secondary react-button" data-bs-dismiss="modal" id="heart">❤️</button>
-              <button class="btn btn-outline-secondary react-button" data-bs-dismiss="modal" id="thumbs-up">👍</button>
-              <button class="btn btn-outline-secondary" id="pin-button">Pin</button>
-              <button class="btn btn-outline-secondary" id="unpin-button">Unpin</button>
-              <button class="btn btn-outline-secondary" id="edit-button">Edit</button>
-              <button class="btn btn-outline-danger" id="delete-button">Delete</button>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Edit message modal -->
-    <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Message</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <label for="editMessage">Edit your message:</label>
-                    <input type="text" class="form-control" id="edit-message" placeholder="Enter your edited message">
+            <div class="modal-body create-channel">
+              <!-- New channel form -->
+              <form id="new-channel-form">
+                <div class="mb-3">
+                  <label for="channel-name" class="form-label">Channel Name</label>
+                  <input type="text" class="form-control" id="channel-name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="channel-description" class="form-label">Description (optional)</label>
+                  <textarea class="form-control" id="channel-description"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-check-label">Privacy Setting</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="privacy" id="public" value="public" checked>
+                    <label class="form-check-label" for="public">Public</label>
                   </div>
-                </form>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="privacy" id="private" value="private">
+                    <label class="form-check-label" for="private">Private</label>
+                  </div>
+                </div>
+              </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="save-changes">Save changes</button>
+              <button type="button" class="btn btn-primary" id="create-channel-button" data-bs-dismiss="modal">Create Channel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- View/Edit Channel Details Modal -->
+      <div class="modal fade" id="channel-details-modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Channel Details</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body channel-details">
+              <h3>Channel name</h3>
+                <p id="channel-details-name" contenteditable="true"></p>
+              <h3>Description</h3>
+                <p id="channel-details-description" contenteditable="true"></p>
+              <h3>Privacy Settings</h3>
+                <p id="channel-details-privacy"></p>
+              <h3>Created by</h3>
+                <p id="channel-details-creation"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary hide-btn" id="leave-button" data-bs-dismiss="modal">Leave server</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="save-changes-button" data-bs-dismiss="modal">Save changes</button>
+            </div>
             </div>
         </div>
-    </div>
-    </div>
-  </main>
+      </div>
 
-  <script type="module" src="src/main.js"></script>
-</body>
+      <!-- Message Actions Modal-->
+      <div class="modal fade" id="message-actions-modal" tabindex="-1" aria-labelledby="messageActionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" >Message Actions</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="message-actions">
+                <button class="btn btn-outline-secondary react-button" data-bs-dismiss="modal" id="skull">💀</button>
+                <button class="btn btn-outline-secondary react-button" data-bs-dismiss="modal" id="heart">❤️</button>
+                <button class="btn btn-outline-secondary react-button" data-bs-dismiss="modal" id="thumbs-up">👍</button>
+                <button class="btn btn-outline-secondary" data-bs-dismiss="modal" id="pin-button">Pin</button>
+                <button class="btn btn-outline-secondary" data-bs-dismiss="modal" id="unpin-button">Unpin</button>
+                <button class="btn btn-outline-secondary" id="edit-button">Edit</button>
+                <button class="btn btn-outline-danger" id="delete-button">Delete</button>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit message modal -->
+      <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="editModalLabel">Edit Message</h5>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="editMessage">Edit your message:</label>
+                      <input type="text" class="form-control" id="edit-message" placeholder="Enter your edited message">
+                    </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="save-changes">Save changes</button>
+              </div>
+          </div>
+      </div>
+      </div>
+
+      <!-- Invite Users Modal -->
+      <div class="modal fade" id="invite-users-modal" tabindex="-1" role="dialog" aria-labelledby="userSelectionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="userSelectionModalLabel">Select Users to Add</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" data-bs-dismiss="modal">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- User list container -->
+              <div class="user-list">
+                <!-- Checkbox with usernames template -->
+                <div class="user-item" id="user-item-template">
+                  <input type="checkbox" class="user-checkbox" value="user1">
+                  <label for="user1">User 1</label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="add-users-button">Add Users</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Profile Modal -->
+      <div class="modal fade" id="user-profile-modal" tabindex="-1" aria-labelledby="userProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="userProfileModalLabel">User Profile</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <!-- User Profile Photo -->
+                    <img id="user-profile-photo" src="default.png" alt="Profile Photo" class="img-fluid rounded-circle">
+                    <div class="hide-profile">
+                      <h4>Change Photo</h4>
+                      <input type="file" class="hide-profile" id="photo-upload" accept="image/*" >
+                    </div>
+                    
+                  </div>
+                  <div class="col-md-8 profile-details">
+                    <!-- User Profile Info -->
+                    
+                    <h4>Name</h4>
+                    <p id="user-profile-name" contenteditable="false">User's Name</p>
+                    <h4>Bio</h4>
+                    <p id="user-profile-bio" contenteditable="false">User's Bio</p>
+                    <h4>Email</h4>
+                    <p id="user-profile-email" contenteditable="false">User's Email</p>
+
+                    <div class="hide-profile">
+                      <h4>New Password</h4>
+                      <input type="password" id="new-password" > 
+                      <button type="button" class="btn btn-outline-primary" id="toggle-password-visibility">Show</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="profile-save-changes" data-bs-dismiss="modal">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </main>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
 
 </html>
 
