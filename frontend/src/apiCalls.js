@@ -58,7 +58,6 @@ export const apiCallGet = (path, body, authed=false, globalToken) => {
 	});
 }
 
-
 // POST request function
 export const apiCallPut = (path, body, authed = true, globalToken) => {
   return new Promise((resolve, reject) => {
@@ -92,10 +91,7 @@ export const apiCallPut = (path, body, authed = true, globalToken) => {
   });
 };
 
-
 // DELETE request function
-
-// GET request function
 export const apiCallDelete = (path, body, authed=false, globalToken) => {
 	return new Promise((resolve, reject) => {
 		fetch(`http://localhost:5005/${path}`, {
@@ -149,15 +145,11 @@ export const apiLeaveServer = (selectedChannelId, globalToken) => {
       .then(() => {
           console.log('left successfuly')
           /* Stores channel last left in case of a refresh after leaving*/
-          
-          
           document.getElementById('channel-header').innerText = 'Welcome! Select a channel!'
           for (const btn of document.querySelectorAll('.hide-btn')) {
             btn.style.display = 'none'
           }
           clearMessages()
-          
-
         })
         .catch((error) => {
           throw error
@@ -192,6 +184,7 @@ export const apiSaveChanges = (selectedChannelId, channelName, channelDetails, g
     })
 }
 
+// Creates a channel
 export const apiCreateChannel = (channelName, privacySetting, channelDesc, globalToken) => {
 	return apiCallPost('channel', {
 		name: channelName,
@@ -201,6 +194,7 @@ export const apiCreateChannel = (channelName, privacySetting, channelDesc, globa
 	
 }
 
+// Logs user in
 export const apiLogin = (email, password, globalToken) => {
 	return apiCallPost('auth/login', {
 		email: email,
@@ -208,6 +202,7 @@ export const apiLogin = (email, password, globalToken) => {
 	}, globalToken)
 }
 
+// Contains user details
 export const apiUserDetails = (userId, globalToken) => {
 	return apiCallGet(`user/${userId}`, {}, true, globalToken)
 	.then(userDetails => {
@@ -221,6 +216,7 @@ export const apiUserDetails = (userId, globalToken) => {
 	})
 }
 
+// Invite user to channel
 export const apiInviteUser = (channelId, userId, globalToken) => {
 	return apiCallPost(`channel/${channelId}/invite`, {
 		userId: userId
@@ -234,6 +230,7 @@ export const apiInviteUser = (channelId, userId, globalToken) => {
 	})
 }
 
+// List total users registered
 export const apiListUsers = (globalToken) => {
 	return apiCallGet('user', {}, true, globalToken)
 			.then((listUsers) => {
@@ -246,6 +243,7 @@ export const apiListUsers = (globalToken) => {
 			})
 }
 
+// Updates user profile
 export const apiUpdateProfile = (email, password, name, bio, image, globalToken) => {
 	return apiCallPut('user', {
 		email: email,
